@@ -7,17 +7,12 @@ import com.angelika.lesson_53.models.User
 
 class UserViewModel : ViewModel() {
 
-    private val _userAddLiveData = MutableLiveData(UserUiState<User>())
-    val userAddLiveData: LiveData<UserUiState<User>> = _userAddLiveData
+    private val _userAddLiveData = MutableLiveData(UserUiState<List<User>>())
+    val userAddLiveData: LiveData<UserUiState<List<User>>> = _userAddLiveData
 
-    fun addUser(user: User) {
-        android.os.Handler().postDelayed(
-            {
-                val newValue = userAddLiveData.value?.copy(isLoading = false, success = user)
-                _userAddLiveData.value = newValue
-            },
-            2000
-        )
+    fun addUser(user: List<User>) {
+        val newValue = userAddLiveData.value?.copy(isLoading = false, success = user)
+        _userAddLiveData.value = newValue
     }
 }
 

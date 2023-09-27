@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.angelika.lesson_53.databinding.FragmentAddBinding
 import com.angelika.lesson_53.models.User
@@ -42,6 +41,7 @@ class AddFragment : Fragment() {
             binding.etAge.isVisible = false
             binding.etName.isVisible = false
             binding.textReady.isVisible = false
+
             viewModel.addUser(user)
             Toast.makeText(requireContext(), "данные успешно переданы", Toast.LENGTH_SHORT).show()
 
